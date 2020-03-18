@@ -5,42 +5,23 @@ title: <brick-viewer> ⌲ Home
 
 # &lt;brick-viewer>
 
-`<brick-viewer>` is an awesome element. It's a great introduction to building web components with LitElement, with nice documentation site as well.
+`<brick-viewer>` is an element that displays models of a certain type of plastic brick.
 
 ## As easy as HTML
 
 <section class="columns">
   <div>
 
-`<brick-viewer>` is just an HTML element. You can it anywhere you can use HTML!
+`<brick-viewer>` is just an HTML element. You can it anywhere you can use HTML! It can be configured with attributes in plain HTML.
 
 ```html
-<brick-viewer></brick-viewer>
+<brick-viewer src='./models/lunar.mpd'></brick-viewer>
 ```
 
   </div>
   <div>
 
-<brick-viewer></brick-viewer>
-
-  </div>
-</section>
-
-## Configure with attributes
-
-<section class="columns">
-  <div>
-
-`<brick-viewer>` can be configured with attributed in plain HTML.
-
-```html
-<brick-viewer name="HTML"></brick-viewer>
-```
-
-  </div>
-  <div>
-
-<brick-viewer name="HTML"></brick-viewer>
+<brick-viewer src='./models/lunar.mpd'></brick-viewer>
 
   </div>
 </section>
@@ -55,19 +36,12 @@ title: <brick-viewer> ⌲ Home
 ```js
 import {html, render} from 'lit-html';
 
-const name="lit-html";
+const url="models/lunar.mpd";
 
 render(html`
-  <h2>This is a &lt;brick-viewer&gt;</h2>
-  <brick-viewer .name=${name}></brick-viewer>
+  <brick-viewer .src=${url}></brick-viewer>
 `, document.body);
 ```
-
-  </div>
-  <div>
-
-<h2>This is a &lt;brick-viewer&gt;</h2>
-<brick-viewer name="lit-html"></brick-viewer>
 
   </div>
 </section>

@@ -17,6 +17,7 @@ module.exports = function(data) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
     <link href="${relative(page.url, '/prism-okaidia.css')}" rel="stylesheet" />
     <script type="module" src="${relative(page.url, '/brick-viewer.bundled.js')}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
   </head>
   <body>
     ${header()}

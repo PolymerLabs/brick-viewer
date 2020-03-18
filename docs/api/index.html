@@ -5,16 +5,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><my-element> ⌲ Docs</title>
+    <title><brick-viewer> ⌲ Docs</title>
     <link rel="stylesheet" href="../docs.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
     <link href="../prism-okaidia.css" rel="stylesheet" />
-    <script type="module" src="../my-element.bundled.js"></script>
+    <script type="module" src="../brick-viewer.bundled.js"></script>
   </head>
   <body>
     
 <header>
-  <h1>&lt;my-element></h1>
+  <h1>&lt;brick-viewer></h1>
   <h2>A web component just for me.</h2>
 </header>
     
@@ -29,9 +29,10 @@
         
       <h1>API</h1>
       
-        <h2>&lt;my-element></h2>
+        <h2>&lt;brick-viewer></h2>
         <div>
-          An example element.
+          Much of this code is from the three.js LDraw example:
+https://github.com/mrdoob/three.js/blob/dev/examples/webgl_loader_ldraw.html
         </div>
         
     <h3>Attributes</h3>
@@ -41,11 +42,11 @@
       </tr>
       
         <tr>
-          <td>name</td><td>The name to say "Hello" to.</td><td>string</td><td>"World"</td>
+          <td>src</td><td>undefined</td><td>string | null</td><td>undefined</td>
         </tr>
       
         <tr>
-          <td>count</td><td>The number of times the button has been clicked.</td><td>number</td><td>0</td>
+          <td>step</td><td>undefined</td><td>number | undefined</td><td>undefined</td>
         </tr>
       
     </table>
@@ -58,43 +59,23 @@
       </tr>
       
         <tr>
-          <td>name</td><td>name</td><td>The name to say "Hello" to.</td><td>string</td><td>"World"</td>
+          <td>src</td><td>src</td><td>undefined</td><td>string | null</td><td>undefined</td>
         </tr>
       
         <tr>
-          <td>count</td><td>count</td><td>The number of times the button has been clicked.</td><td>number</td><td>0</td>
+          <td>constructionStep</td><td>step</td><td>undefined</td><td>number | undefined</td><td>undefined</td>
+        </tr>
+      
+        <tr>
+          <td>slider</td><td>undefined</td><td>undefined</td><td>Slider | null</td><td>undefined</td>
         </tr>
       
     </table>
     
         
             
+          
         
-    <h3>Slots</h3>
-    <table>
-      <tr>
-        <th>Name</th><th>Description</th>
-      </tr>
-      
-        <tr>
-          <td></td><td>This element has a slot</td>
-        </tr>
-      
-    </table>
-    
-        
-    <h3>CSS Shadow Parts</h3>
-    <table>
-      <tr>
-        <th>Name</th><th>Description</th>
-      </tr>
-      
-        <tr>
-          <td>button</td><td>The button</td>
-        </tr>
-      
-    </table>
-  
         
         
     

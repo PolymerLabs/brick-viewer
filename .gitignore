@@ -3,7 +3,7 @@
 /test/
 
 # top level source
-my-element.js
-my-element.js.map
-my-element.d.ts
-my-element.d.ts.map
+brick-viewer.js
+brick-viewer.js.map
+brick-viewer.d.ts
+brick-viewer.d.ts.map

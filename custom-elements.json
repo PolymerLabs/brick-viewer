@@ -2,48 +2,32 @@
   "version": "experimental",
   "tags": [
     {
-      "name": "my-element",
-      "description": "An example element.",
+      "name": "brick-viewer",
+      "description": "Much of this code is from the three.js LDraw example:\nhttps://github.com/mrdoob/three.js/blob/dev/examples/webgl_loader_ldraw.html",
       "attributes": [
         {
-          "name": "name",
-          "description": "The name to say \"Hello\" to.",
-          "type": "string",
-          "default": "\"World\""
+          "name": "src",
+          "type": "string | null"
         },
         {
-          "name": "count",
-          "description": "The number of times the button has been clicked.",
-          "type": "number",
-          "default": "0"
+          "name": "step",
+          "type": "number | undefined"
         }
       ],
       "properties": [
         {
-          "name": "name",
-          "attribute": "name",
-          "description": "The name to say \"Hello\" to.",
-          "type": "string",
-          "default": "\"World\""
+          "name": "src",
+          "attribute": "src",
+          "type": "string | null"
         },
         {
-          "name": "count",
-          "attribute": "count",
-          "description": "The number of times the button has been clicked.",
-          "type": "number",
-          "default": "0"
-        }
-      ],
-      "slots": [
+          "name": "constructionStep",
+          "attribute": "step",
+          "type": "number | undefined"
+        },
         {
-          "name": "",
-          "description": "This element has a slot"
-        }
-      ],
-      "cssParts": [
-        {
-          "name": "button",
-          "description": "The button"
+          "name": "slider",
+          "type": "Slider | null"
         }
       ]
     }

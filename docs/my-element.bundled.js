@@ -196,4 +196,4 @@ var lt=function(t,s,i,e){for(var n,o=arguments.length,r=o<3?s:null===e?e=Object.
       padding: 16px;
       max-width: 800px;
     }
-  `,lt([et()],at.prototype,"name",void 0),lt([et({type:Number})],at.prototype,"count",void 0),at=lt([(t=>s=>"function"==typeof s?((t,s)=>(window.customElements.define(t,s),s))(t,s):((t,s)=>{const{kind:i,elements:e}=s;return{kind:i,elements:e,finisher(s){window.customElements.define(t,s)}}})(t,s))("my-element")],at);export{at as MyElement};
+  `,lt([et()],at.prototype,"name",void 0),lt([et({type:Number})],at.prototype,"count",void 0),at=lt([(t=>s=>"function"==typeof s?((t,s)=>(window.customElements.define(t,s),s))(t,s):((t,s)=>{const{kind:i,elements:e}=s;return{kind:i,elements:e,finisher(s){window.customElements.define(t,s)}}})(t,s))("brick-viewer")],at);export{at as BrickViewer};

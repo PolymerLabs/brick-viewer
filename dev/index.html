@@ -3,18 +3,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>&lt;my-element> Demo</title>
-    <script type="module" src="../my-element.js"></script>
+    <title>&lt;brick-viewer> Demo</title>
+    <script type="module" src="../brick-viewer.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
     <style>
-      p {
-        border: solid 1px blue;
-        padding: 8px;
+      brick-viewer {
+        height: 500px;
       }
     </style>
   </head>
   <body>
-    <my-element>
-      <p>This is child content</p>
-    </my-element>
+    <brick-viewer
+      src="./models/lunar.mpd"
+    ></brick-viewer>
   </body>
 </html>

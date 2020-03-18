@@ -2,6 +2,10 @@
 
 A web component for viewing models built with a certain type of plastic brick!
 
+```html
+<brick-viewer src="car.mpd"></brick-viewer>
+```
+
 ![brick-viewer element displaying a car](example.png)
 
 ## Attributes

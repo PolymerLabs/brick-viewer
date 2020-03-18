@@ -33,6 +33,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "@material/mwc-icon-button": "^0.13.0",
+    "@material/mwc-linear-progress": "^0.13.0",
     "@material/mwc-slider": "^0.13.0",
     "lit-element": "^2.2.1",
     "resize-observer-polyfill": "^1.5.1",

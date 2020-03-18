@@ -23,13 +23,19 @@ import ResizeObserver from 'resize-observer-polyfill';
  * https://github.com/mrdoob/three.js/blob/dev/examples/webgl_loader_ldraw.html
  */
 
+enum LoadState {
+  LOADING,
+  DONE,
+  ERROR,
+}
+
 @customElement('brick-viewer')
 export class BrickViewer extends LitElement {
   static styles = css`
     :host {
       display: block;
       position: relative;
-      height: 200px;
+      height: 300px;
     }
     #controls {
       position: absolute;
@@ -40,6 +46,20 @@ export class BrickViewer extends LitElement {
     mwc-slider {
       flex-grow: 1;
     }
+    mwc-linear-progress,
+    #error-message {
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    #error-message {
+      padding-top: 10px;
+      color: red;
+      text-align: center;
+    }
+    canvas {
+      outline: none;
+    }
   `;
 
   @property()
@@ -47,6 +67,9 @@ export class BrickViewer extends LitElement {
 
   @property({type: Number, attribute: 'step'})
   constructionStep?: number;
+
+  @property({attribute: false})
+  _loadState?: LoadState;
 
   @query('mwc-slider')
   slider!: Slider | null;
@@ -93,6 +116,9 @@ export class BrickViewer extends LitElement {
     this._renderer.setSize(this.offsetWidth, this.offsetHeight);
 
     this._controls = new OrbitControls(this._camera, this._renderer.domElement);
+    this._controls.addEventListener('change', () =>
+      requestAnimationFrame(this._animate)
+    );
 
     (this._loader as any).separateObjects = true;
 
@@ -109,6 +135,7 @@ export class BrickViewer extends LitElement {
     this._renderer.setSize(width, height);
     this._camera.aspect = width / height;
     this._camera.updateProjectionMatrix();
+    requestAnimationFrame(this._animate);
   };
 
   private _restart() {
@@ -130,6 +157,17 @@ export class BrickViewer extends LitElement {
   render() {
     return html`
       ${this._renderer.domElement}
+      ${this._loadState === LoadState.LOADING
+        ? html`
+            <mwc-linear-progress indeterminate></mwc-linear-progress>
+          `
+        : ''}
+      ${this._loadState === LoadState.ERROR
+        ? html`
+            <div id="error-message">Couldn't load model.</div>
+          `
+        : ''}
+
       <div id="controls">
         <mwc-icon-button
           @click=${this._restart}
@@ -172,15 +210,15 @@ export class BrickViewer extends LitElement {
   }
 
   private _loadModel() {
-    console.log('loading');
     if (this.src === null) {
       return;
     }
+    this._loadState = LoadState.LOADING;
     this._loader.setPath('').load(
       this.src,
       (newModel) => {
+        this._loadState = LoadState.DONE;
         if (this._model !== undefined) {
-          console.log('Removing old model');
           this._scene.remove(this._model);
           this._model = undefined;
         }
@@ -200,8 +238,8 @@ export class BrickViewer extends LitElement {
         this._controls.update();
         this._controls.saveState();
       },
-      onProgress,
-      onError
+      undefined,
+      this._onError
     );
   }
 
@@ -212,29 +250,16 @@ export class BrickViewer extends LitElement {
           c.visible = c.userData.constructionStep <= this.constructionStep;
         }
       });
+    requestAnimationFrame(this._animate);
   }
 
   private _animate = () => {
-    // TODO: only rAF when there's an animation/interaction
-    requestAnimationFrame(this._animate);
     this._renderer.render(this._scene, this._camera);
   };
-}
 
-function onProgress(e: ProgressEvent) {
-  console.log('progress');
-  // TODO: lengthComputable not available because es dev server doesn't
-  // send content-size header
-  if (e.lengthComputable) {
-    // TODO: Add a progress bar
-    console.log(Math.round((e.loaded / e.total) * 100) + '% downloaded');
-  }
-}
-
-function onError() {
-  // TODO: show in UI
-  const message = 'Error loading model';
-  console.log(message);
+  private _onError = () => {
+    this._loadState = LoadState.ERROR;
+  };
 }
 
 declare global {

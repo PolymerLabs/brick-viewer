@@ -15,13 +15,13 @@ title: <brick-viewer> ⌲ Home
 `<brick-viewer>` is just an HTML element. You can it anywhere you can use HTML! It can be configured with attributes in plain HTML.
 
 ```html
-<brick-viewer src='./models/lunar.mpd'></brick-viewer>
+<brick-viewer src='./models/bulldozer.mpd'></brick-viewer>
 ```
 
   </div>
   <div>
 
-<brick-viewer src='./models/lunar.mpd'></brick-viewer>
+<brick-viewer src='./models/bulldozer.mpd'></brick-viewer>
 
   </div>
 </section>
@@ -36,7 +36,7 @@ title: <brick-viewer> ⌲ Home
 ```js
 import {html, render} from 'lit-html';
 
-const url="models/lunar.mpd";
+const url="models/bulldozer.mpd";
 
 render(html`
   <brick-viewer .src=${url}></brick-viewer>

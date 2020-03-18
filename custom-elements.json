@@ -3,7 +3,6 @@
   "tags": [
     {
       "name": "brick-viewer",
-      "description": "Much of this code is from the three.js LDraw example:\nhttps://github.com/mrdoob/three.js/blob/dev/examples/webgl_loader_ldraw.html",
       "attributes": [
         {
           "name": "src",

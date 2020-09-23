@@ -1,0 +1,17 @@
+.vscode
+dev
+docs
+docs-src
+node_modules
+src/test
+test
+.eleventy.cjs
+.eslintrc.json
+.gitignore
+.prettierrc.json
+CONTRIBUTING.md
+custom-elements.json
+example.png
+karma.conf.cjs
+rollup.config.js
+tsconfig.json

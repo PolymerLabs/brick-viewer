@@ -6,7 +6,9 @@ import {
   html,
   css,
   query,
+  internalProperty,
 } from 'lit-element';
+import {ifDefined} from 'lit-html/directives/if-defined';
 
 import * as THREE from 'three';
 import {LDrawLoader} from 'three/examples/jsm/loaders/LDrawLoader.js';
@@ -14,6 +16,7 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 import '@material/mwc-icon-button';
 import '@material/mwc-slider';
+import '@material/mwc-linear-progress';
 import {Slider} from '@material/mwc-slider';
 
 import ResizeObserver from 'resize-observer-polyfill';
@@ -65,11 +68,11 @@ export class BrickViewer extends LitElement {
   @property()
   src: string | null = null;
 
-  @property({type: Number, attribute: 'step'})
-  constructionStep?: number;
+  @property({type: Number, reflect: true})
+  step?: number;
 
-  @property({attribute: false})
-  _loadState?: LoadState;
+  @internalProperty()
+  private _loadState?: LoadState;
 
   @query('mwc-slider')
   slider!: Slider | null;
@@ -139,15 +142,15 @@ export class BrickViewer extends LitElement {
   };
 
   private _restart() {
-    this.constructionStep! = 1;
+    this.step! = 1;
   }
 
   private _stepBack() {
-    this.constructionStep! -= 1;
+    this.step! -= 1;
   }
 
   private _stepForward() {
-    this.constructionStep! += 1;
+    this.step! += 1;
   }
 
   private _resetCamera() {
@@ -182,10 +185,10 @@ export class BrickViewer extends LitElement {
           pin
           markers
           min="1"
-          .max=${this._numConstructionSteps || 10}
+          max=${ifDefined(this._numConstructionSteps)}
           ?disabled=${this._numConstructionSteps === undefined}
-          .value=${this.constructionStep || 10}
-          @input=${(e: CustomEvent) => (this.constructionStep = e.detail.value)}
+          value=${ifDefined(this.step)}
+          @input=${(e: CustomEvent) => (this.step = e.detail.value)}
         ></mwc-slider>
         <mwc-icon-button
           @click=${this._stepForward}
@@ -203,7 +206,7 @@ export class BrickViewer extends LitElement {
     if (changedProperties.has('src')) {
       this._loadModel();
     }
-    if (changedProperties.has('constructionStep')) {
+    if (changedProperties.has('step')) {
       this._updateObjectsVisibility();
     }
     super.update(changedProperties);
@@ -230,13 +233,17 @@ export class BrickViewer extends LitElement {
         this._scene.add(this._model);
 
         this._numConstructionSteps = this._model.userData.numConstructionSteps;
-        this.constructionStep = this._numConstructionSteps!;
+        this.step = this._numConstructionSteps!;
 
         // Adjust camera
         const bbox = new THREE.Box3().setFromObject(this._model);
         this._controls.target.copy(bbox.getCenter(new THREE.Vector3()));
         this._controls.update();
         this._controls.saveState();
+
+        this.dispatchEvent(
+          new CustomEvent('model-loaded', {bubbles: true, composed: true})
+        );
       },
       undefined,
       this._onError
@@ -246,8 +253,8 @@ export class BrickViewer extends LitElement {
   private _updateObjectsVisibility() {
     this._model &&
       this._model.traverse((c: any) => {
-        if (c.isGroup && this.constructionStep) {
-          c.visible = c.userData.constructionStep <= this.constructionStep;
+        if (c.isGroup && this.step) {
+          c.visible = c.userData.constructionStep <= this.step;
         }
       });
     requestAnimationFrame(this._animate);

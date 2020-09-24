@@ -18,13 +18,7 @@
   <h1>&lt;brick-viewer></h1>
   <h2>Display models of a certain type of plastic brick.</h2>
 </header>
-    
-<nav>
-  <a href="../">Home</a>
-  <a href="../examples/">Examples</a>
-  <a href="../api/">API</a>
-  <a href="">Install</a>
-</nav>
+<div id="stud-pattern"></div>
     <div id="main-wrapper">
       <main>
         <h1>Install</h1>
@@ -35,7 +29,7 @@
 <p>npm CDNs like <a href="">unpkg.com</a> can directly serve files that have been published to npm. This works great for standard JavaScript modules that the browser can load natively.</p>
 <p>For this element to work from unpkg.com specifically, you need to include the <code>?module</code> query parameter, which tells unpkg.com to rewrite &quot;bare&quot; module specificers to full URLs.</p>
 <h3>HTML</h3>
-<pre class="language-html"><code class="language-html"><span class="highlight-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/brick-viewer?module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="highlight-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/brick-viewer?module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span></code></pre>
 <h3>JavaScript</h3>
 <pre class="language-html"><code class="language-html"><span class="highlight-line">import {BrickViewer} from 'https://unpkg.com/brick-viewer?module';</span></code></pre>
 

@@ -4,6 +4,8 @@ docs
 docs-src
 node_modules
 src/test
+src/docs-components
+docs-components
 test
 .eleventy.cjs
 .eslintrc.json

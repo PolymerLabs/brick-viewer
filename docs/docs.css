@@ -35,8 +35,14 @@ header {
   justify-content: center;
   height: 360px;
   margin: 0;
-  background: linear-gradient(0deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+  background: #f3050b;
   color: white;
+}
+#stud-pattern {
+  display: block;
+  height: 35px;
+  width: 100%;
+  background-image: repeating-linear-gradient(90deg, transparent 0 45px, #f3050b 45px 135px, transparent 135px 180px);
 }
 
 footer {
@@ -60,6 +66,7 @@ h2 {
   font-size: 1.6em;
   font-weight: 300;
   margin: 64px 0 12px;
+  text-align: center;
 }
 
 h3 {
@@ -127,7 +134,7 @@ nav.collection a:hover {
 
 section.columns {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 488px));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 654px));
   grid-gap: 48px;
   justify-content: center;
 }

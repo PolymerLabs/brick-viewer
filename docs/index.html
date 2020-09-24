@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><brick-viewer> ⌲ Home</title>
+    <title><brick-viewer></title>
     <link rel="stylesheet" href="docs.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
     <link href="prism-okaidia.css" rel="stylesheet" />
@@ -18,35 +18,75 @@
   <h1>&lt;brick-viewer></h1>
   <h2>Display models of a certain type of plastic brick.</h2>
 </header>
-    
-<nav>
-  <a href="">Home</a>
-  <a href="examples/">Examples</a>
-  <a href="api/">API</a>
-  <a href="install/">Install</a>
-</nav>
+<div id="stud-pattern"></div>
     <div id="main-wrapper">
       <main>
-        <h1>&lt;brick-viewer&gt;</h1>
-<p><code>&lt;brick-viewer&gt;</code> is an element that displays models of a certain type of plastic brick.</p>
-<h2>As easy as HTML</h2>
-<section class="columns">
-  <div>
-<p><code>&lt;brick-viewer&gt;</code> is just an HTML element. You can it anywhere you can use HTML! It can be configured with attributes in plain HTML.</p>
-<pre class="language-html"><code class="language-html"><span class="highlight-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>brick-viewer</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>./models/bulldozer.mpd<span class="token punctuation">'</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>brick-viewer</span><span class="token punctuation">></span></span></span></code></pre>
-  </div>
-  <div>
-<p><brick-viewer src='./models/bulldozer.mpd'></brick-viewer></p>
-  </div>
-</section>
+        <h2>As easy as HTML</h2>
+<p><knobs-example></knobs-example></p>
 <h2>Declarative rendering</h2>
 <section class="columns">
   <div>
-<p><code>&lt;brick-viewer&gt;</code> can be used with declarative rendering libraries like Angular, React, Vue, and lit-html</p>
-<pre class="language-js"><code class="language-js"><span class="highlight-line"><span class="token keyword">import</span> <span class="token punctuation">{</span>html<span class="token punctuation">,</span> render<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'lit-html'</span><span class="token punctuation">;</span></span><br><span class="highlight-line"></span><br><span class="highlight-line"><span class="token keyword">const</span> url<span class="token operator">=</span><span class="token string">"models/bulldozer.mpd"</span><span class="token punctuation">;</span></span><br><span class="highlight-line"></span><br><span class="token function">render</span><span class="token punctuation">(</span>html<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"><br><span class="highlight-line">  &lt;brick-viewer .src=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">>&lt;/brick-viewer></span><br></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code>&lt;brick-viewer&gt;</code> can be also used with declarative rendering libraries like Angular, React, Vue, and lit-html</p>
+<pre class="language-js"><code class="language-js"><span class="highlight-line"><span class="token keyword">import</span> <span class="token punctuation">{</span>html<span class="token punctuation">,</span> render<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'lit-html'</span><span class="token punctuation">;</span></span><br><span class="highlight-line"></span><br><span class="highlight-line"><span class="token keyword">const</span> url<span class="token operator">=</span><span class="token string">"models/bulldozer.mpd"</span><span class="token punctuation">;</span></span><br><span class="highlight-line"></span><br><span class="token function">render</span><span class="token punctuation">(</span>html<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"><br><span class="highlight-line">  &lt;brick-viewer src=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">>&lt;/brick-viewer></span><br></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
   </div>
 </section>
-
+<h2>Install</h2>
+<section class="columns">
+<div>
+<p><code>&lt;brick-viewer&gt;</code> is distributed on npm, so you can install it locally or use it via npm CDNs like unpkg.com.</p>
+<h3>Local Installation</h3>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line"><span class="token function">npm</span> i brick-viewer</span></code></pre>
+<h3>CDN</h3>
+<p>npm CDNs like <a href="">unpkg.com</a> can directly serve files that have been published to npm. This works great for standard JavaScript modules that the browser can load natively.</p>
+<p>For this element to work from unpkg.com specifically, you need to include the <code>?module</code> query parameter, which tells unpkg.com to rewrite &quot;bare&quot; module specificers to full URLs.</p>
+<p>HTML example:</p>
+<pre class="language-html"><code class="language-html"><span class="highlight-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/brick-viewer?module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span></code></pre>
+<p>JavaScript example:</p>
+<pre class="language-html"><code class="language-html"><span class="highlight-line">import {BrickViewer} from 'https://unpkg.com/brick-viewer?module';</span></code></pre>
+</div>
+</section>
+<h2>API</h2>
+<section class="columns">
+<div>
+<h3>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>src</td>
+<td>src</td>
+<td>A model (.mpd) URL</td>
+</tr>
+<tr>
+<td>step</td>
+<td>step</td>
+<td>Which construction step of the model to display</td>
+</tr>
+</tbody>
+</table>
+<h3>Events</h3>
+<table>
+<thead>
+<tr>
+<th>Event name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>model-loaded</td>
+<td>Fired when a model is successfully loaded.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
       </main>
     </div>
     

@@ -18,7 +18,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 
 export default {
-  input: 'brick-viewer.js',
+  input: 'docs-components/index.js',
   output: {
     file: 'brick-viewer.bundled.js',
     format: 'esm',

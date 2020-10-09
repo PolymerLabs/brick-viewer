@@ -12,7 +12,7 @@ let KnobsExample = class KnobsExample extends LitElement {
     constructor() {
         super(...arguments);
         this.step = 1;
-        this.src = 'bulldozer';
+        this.src = 'radar_truck';
         this.sources = [
             { filename: 'bulldozer', prettyName: 'Bulldozer' },
             { filename: 'radar_truck', prettyName: 'Radar Truck' },
@@ -38,8 +38,9 @@ let KnobsExample = class KnobsExample extends LitElement {
         return html `
       <div>
         <p>
-          Use the brick-viewer tag like a normal HTML element. Change the "step"
-          and "src" attributes to control the model.
+          <code>&lt;brick-viewer&gt;</code> can be also used with declarative
+          rendering libraries like Angular, React, Vue, and lit-html.<br />Change
+          the "step" and "src" attributes to control the model.
         </p>
         <p>
           <span id="step-label">step:</span>
@@ -69,11 +70,17 @@ let KnobsExample = class KnobsExample extends LitElement {
           </mwc-select>
         </p>
         <pre class="code">
-&lt;<span class="tag">brick-viewer</span>
-  <span class="attribute">step</span>=<span class="value">"${this.step}"</span>
-  <span class="attribute">src</span>=<span class="value">"./${this
-            .src}.mpd"</span>
-&gt;&lt;/<span class="tag">brick-viewer</span>&gt;</pre>
+<span class="keyword">import</span> {html, render} <span class="keyword">from</span> <span class="string">'lit-html'</span>;
+
+<span class="keyword">let</span> url = <span class="string">'./${this.src}.mpd'</span>;
+<span class="keyword">let</span> step = <span class="value">${this.step}</span>;
+
+render(html<span class="string">&#96;</span>
+  &lt;<span class="tag">brick-viewer</span>
+    <span class="attribute">src</span>=<span class="value">"\$\{</span>url<span class="value">}"</span>
+    <span class="attribute">step</span>=<span class="value">"\$\{</span>step<span class="value">\}"</span>
+  &gt;&lt;/<span class="tag">brick-viewer</span>&gt;
+<span class="string">&#96;</span>, <span class="value">document</span>.body);</pre>
       </div>
       <div>
         <p>
@@ -136,11 +143,14 @@ KnobsExample.styles = css `
     .code .tag {
       color: #f92672;
     }
-    .code .attribute {
+    .code .attribute, .code .string {
       color: #a6e22e;
     }
     .code .value {
       color: #e6db74;
+    }
+    .code .keyword {
+      color: #66d9ef;
     }
   `;
 __decorate([

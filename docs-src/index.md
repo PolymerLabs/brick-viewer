@@ -5,32 +5,30 @@ title: <brick-viewer>
 
 ## As easy as HTML
 
-<knobs-example></knobs-example>
-
-## Declarative rendering
-
 <section class="columns">
   <div>
 
-`<brick-viewer>` can be also used with declarative rendering libraries like Angular, React, Vue, and lit-html
+Just use `<brick-viewer>` element like a normal HTML element.
 
-```js
-import {html, render} from 'lit-html';
-
-const url="models/bulldozer.mpd";
-
-render(html`
-  <brick-viewer src=${url}></brick-viewer>
-`, document.body);
+```html
+<brick-viewer
+  src="./bulldozer.mpd"
+></brick-viewer>
 ```
 
   </div>
+  <div style="margin-top: 18px">
+    <brick-viewer src="./models/bulldozer.mpd"></brick-viewer>
+  </div>
 </section>
+
+## Declarative rendering
+
+<knobs-example></knobs-example>
 
 ## Install
 
-<section class="columns">
-<div>
+<section>
 
 `<brick-viewer>` is distributed on npm, so you can install it locally or use it via npm CDNs like unpkg.com.
 
@@ -54,16 +52,14 @@ HTML example:
 
 JavaScript example:
 
-```html
+```js
 import {BrickViewer} from 'https://unpkg.com/brick-viewer?module';
 ```
-</div>
 </section>
 
 ## API
 
-<section class="columns">
-<div>
+<section>
 
 ### Attributes
 
@@ -78,5 +74,4 @@ import {BrickViewer} from 'https://unpkg.com/brick-viewer?module';
 | --- | --- | --- |
 | model-loaded | Fired when a model is successfully loaded. |
 
-</div>
 </section>

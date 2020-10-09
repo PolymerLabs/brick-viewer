@@ -134,7 +134,7 @@ nav.collection a:hover {
 
 section.columns {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 654px));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 488px));
   grid-gap: 48px;
   justify-content: center;
 }
@@ -164,6 +164,6 @@ th {
 
 td, th {
   border: solid 1px #aaa;
-  padding: 4px;
+  padding: 14px;
   text-align: left;
 }

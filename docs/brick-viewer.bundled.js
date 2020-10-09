@@ -1475,11 +1475,12 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-*/;let pm=class extends mm{};pm.styles=vm,pm=ql([q("mwc-list-item")],pm);var gm=function(t,e,i,n){for(var r,s=arguments.length,o=s<3?e:null===n?n=Object.getOwnPropertyDescriptor(e,i):n,a=t.length-1;a>=0;a--)(r=t[a])&&(o=(s<3?r(o):s>3?r(e,i,o):r(e,i))||o);return s>3&&o&&Object.defineProperty(e,i,o),o};let _m=class extends ct{constructor(){super(...arguments),this.step=1,this.src="bulldozer",this.sources=[{filename:"bulldozer",prettyName:"Bulldozer"},{filename:"radar_truck",prettyName:"Radar Truck"}]}firstUpdated(){const t=this.brickViewer;new MutationObserver(e=>{for(const i of e)"attributes"===i.type&&"step"===i.attributeName&&(this.step=Number(t.getAttribute("step")))}).observe(t,{attributes:!0})}render(){return k`
+*/;let pm=class extends mm{};pm.styles=vm,pm=ql([q("mwc-list-item")],pm);var gm=function(t,e,i,n){for(var r,s=arguments.length,o=s<3?e:null===n?n=Object.getOwnPropertyDescriptor(e,i):n,a=t.length-1;a>=0;a--)(r=t[a])&&(o=(s<3?r(o):s>3?r(e,i,o):r(e,i))||o);return s>3&&o&&Object.defineProperty(e,i,o),o};let _m=class extends ct{constructor(){super(...arguments),this.step=1,this.src="radar_truck",this.sources=[{filename:"bulldozer",prettyName:"Bulldozer"},{filename:"radar_truck",prettyName:"Radar Truck"}]}firstUpdated(){const t=this.brickViewer;new MutationObserver(e=>{for(const i of e)"attributes"===i.type&&"step"===i.attributeName&&(this.step=Number(t.getAttribute("step")))}).observe(t,{attributes:!0})}render(){return k`
       <div>
         <p>
-          Use the brick-viewer tag like a normal HTML element. Change the "step"
-          and "src" attributes to control the model.
+          <code>&lt;brick-viewer&gt;</code> can be also used with declarative
+          rendering libraries like Angular, React, Vue, and lit-html.<br />Change
+          the "step" and "src" attributes to control the model.
         </p>
         <p>
           <span id="step-label">step:</span>
@@ -1505,10 +1506,17 @@ limitations under the License.
           </mwc-select>
         </p>
         <pre class="code">
-&lt;<span class="tag">brick-viewer</span>
-  <span class="attribute">step</span>=<span class="value">"${this.step}"</span>
-  <span class="attribute">src</span>=<span class="value">"./${this.src}.mpd"</span>
-&gt;&lt;/<span class="tag">brick-viewer</span>&gt;</pre>
+<span class="keyword">import</span> {html, render} <span class="keyword">from</span> <span class="string">'lit-html'</span>;
+
+<span class="keyword">let</span> url = <span class="string">'./${this.src}.mpd'</span>;
+<span class="keyword">let</span> step = <span class="value">${this.step}</span>;
+
+render(html<span class="string">&#96;</span>
+  &lt;<span class="tag">brick-viewer</span>
+    <span class="attribute">src</span>=<span class="value">"\$\{</span>url<span class="value">}"</span>
+    <span class="attribute">step</span>=<span class="value">"\$\{</span>step<span class="value">\}"</span>
+  &gt;&lt;/<span class="tag">brick-viewer</span>&gt;
+<span class="string">&#96;</span>, <span class="value">document</span>.body);</pre>
       </div>
       <div>
         <p>
@@ -1568,10 +1576,13 @@ limitations under the License.
     .code .tag {
       color: #f92672;
     }
-    .code .attribute {
+    .code .attribute, .code .string {
       color: #a6e22e;
     }
     .code .value {
       color: #e6db74;
+    }
+    .code .keyword {
+      color: #66d9ef;
     }
   `,gm([Z({type:Number})],_m.prototype,"step",void 0),gm([Z({type:String})],_m.prototype,"src",void 0),gm([K("brick-viewer")],_m.prototype,"brickViewer",void 0),_m=gm([q("knobs-example")],_m);

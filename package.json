@@ -37,7 +37,7 @@
     "@material/mwc-slider": "^0.18.0",
     "lit-element": "^2.4.0",
     "resize-observer-polyfill": "^1.5.1",
-    "three": "^0.114.0"
+    "three": "^0.137.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.9.0",

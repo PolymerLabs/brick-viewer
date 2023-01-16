@@ -15,7 +15,9 @@
     "docs:gen:watch": "eleventy --config=.eleventy.cjs --watch",
     "docs:build": "rollup -c --file docs/brick-viewer.bundled.js",
     "docs:assets": "cp node_modules/prismjs/themes/prism-okaidia.css docs/",
+    "docs:serve": "web-dev-server --root-dir=docs --node-resolve --watch",
     "analyze": "wca analyze \"src/**/*.ts\" --outFile custom-elements.json",
+    "serve": "web-dev-server --node-resolve --watch",
     "checksize": "rollup -c ; cat brick-viewer.bundled.js | gzip -9 | wc -c ; rm brick-viewer.bundled.js"
   },
   "keywords": [
@@ -45,6 +47,7 @@
     "@types/mocha": "^5.2.7",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
+    "@web/dev-server": "^0.1.35",
     "chai": "^4.2.0",
     "deepmerge": "^4.2.2",
     "eslint": "^6.8.0",

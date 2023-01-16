@@ -1,13 +1,7 @@
 import '../brick-viewer';
 import {BrickViewer} from '../brick-viewer';
-import {
-  LitElement,
-  customElement,
-  html,
-  css,
-  property,
-  query,
-} from 'lit-element';
+import {LitElement, html, css} from 'lit';
+import {customElement, property, query} from 'lit/decorators.js';
 import '@material/mwc-select';
 import {Select} from '@material/mwc-select';
 import '@material/mwc-list/mwc-list-item';
@@ -72,7 +66,8 @@ export class KnobsExample extends LitElement {
     .code .tag {
       color: #f92672;
     }
-    .code .attribute, .code .string {
+    .code .attribute,
+    .code .string {
       color: #a6e22e;
     }
     .code .value {
@@ -116,7 +111,7 @@ export class KnobsExample extends LitElement {
             type="number"
             min="1"
             max="66"
-            .value="${this.step}"
+            .value="${this.step as unknown as string}"
             @change=${(e: Event) => {
               this.step = Number((e.target as HTMLInputElement).value);
             }}
@@ -142,23 +137,22 @@ export class KnobsExample extends LitElement {
         <pre class="code">
 <span class="keyword">import</span> {html, render} <span class="keyword">from</span> <span class="string">'lit-html'</span>;
 
-<span class="keyword">let</span> url = <span class="string">'./${this.src}.mpd'</span>;
+<span class="keyword">let</span> url = <span class="string">'./${this
+          .src}.mpd'</span>;
 <span class="keyword">let</span> step = <span class="value">${this.step}</span>;
 
 render(html<span class="string">&#96;</span>
   &lt;<span class="tag">brick-viewer</span>
-    <span class="attribute">src</span>=<span class="value">"\$\{</span>url<span class="value">}"</span>
-    <span class="attribute">step</span>=<span class="value">"\$\{</span>step<span class="value">\}"</span>
+    <span class="attribute">src</span>=<span class="value">"\${</span>url<span class="value">}"</span>
+    <span class="attribute">step</span>=<span class="value">"\${</span>step<span class="value">}"</span>
   &gt;&lt;/<span class="tag">brick-viewer</span>&gt;
 <span class="string">&#96;</span>, <span class="value">document</span>.body);</pre>
       </div>
       <div>
-        <p>
-          Result:
-        </p>
+        <p>Result:</p>
         <brick-viewer
-          step="${this.step}"
-          src="./models/${this.src}.mpd"
+          .step="${this.step}"
+          .src="./models/${this.src}.mpd"
           id="main-example"
         ></brick-viewer>
       </div>

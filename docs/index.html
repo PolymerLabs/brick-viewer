@@ -25,7 +25,7 @@
 <section class="columns">
   <div>
 <p>Just use <code>&lt;brick-viewer&gt;</code> element like a normal HTML element.</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>brick-viewer</span><br><span class="highlight-line">  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./bulldozer.mpd<span class="token punctuation">"</span></span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>brick-viewer</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>brick-viewer</span><br>  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./bulldozer.mpd<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>brick-viewer</span><span class="token punctuation">></span></span></code></pre>
   </div>
   <div style="margin-top: 18px">
     <brick-viewer src="./models/bulldozer.mpd"></brick-viewer>
@@ -37,14 +37,14 @@
 <section>
 <p><code>&lt;brick-viewer&gt;</code> is distributed on npm, so you can install it locally or use it via npm CDNs like unpkg.com.</p>
 <h3>Local Installation</h3>
-<pre class="language-bash"><code class="language-bash"><span class="highlight-line"><span class="token function">npm</span> i brick-viewer</span></code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> i brick-viewer</code></pre>
 <h3>CDN</h3>
 <p>npm CDNs like <a href="">unpkg.com</a> can directly serve files that have been published to npm. This works great for standard JavaScript modules that the browser can load natively.</p>
 <p>For this element to work from unpkg.com specifically, you need to include the <code>?module</code> query parameter, which tells unpkg.com to rewrite &quot;bare&quot; module specificers to full URLs.</p>
 <p>HTML example:</p>
-<pre class="language-html"><code class="language-html"><span class="highlight-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/brick-viewer?module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/brick-viewer?module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <p>JavaScript example:</p>
-<pre class="language-js"><code class="language-js"><span class="highlight-line"><span class="token keyword">import</span> <span class="token punctuation">{</span>BrickViewer<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/brick-viewer?module'</span><span class="token punctuation">;</span></span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>BrickViewer<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/brick-viewer?module'</span><span class="token punctuation">;</span></code></pre>
 </section>
 <h2>API</h2>
 <section>
@@ -71,20 +71,9 @@
 </tbody>
 </table>
 <h3>Events</h3>
-<table>
-<thead>
-<tr>
-<th>Event name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>model-loaded</td>
-<td>Fired when a model is successfully loaded.</td>
-</tr>
-</tbody>
-</table>
+<p>| Event name | Description |
+| --- | --- | --- |
+| model-loaded | Fired when a model is successfully loaded. |</p>
 </section>
       </main>
     </div>
@@ -92,7 +81,7 @@
 <footer>
   <p>
     Made with
-    <a href="https://github.com/PolymerLabs/lit-element-starter-ts">lit-element-starter-ts</a>
+    <a href="https://github.com/Lit/lit-element-starter-ts">lit-element-starter-ts</a>
   </p>
 </footer>
   </body>

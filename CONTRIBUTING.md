@@ -26,7 +26,7 @@ npm run build:watch
 
 ## Testing
 
-This project uses Karma, Chai, Mocha, and the open-wc test helpers for testing. See the [open-wc testing documentation](https://open-wc.org/testing/testing.html) for more information.
+This project uses Chai, Mocha, and the open-wc test helpers for testing. See the [open-wc testing documentation](https://open-wc.org/testing/testing.html) for more information.
 
 Tests can be run with the `test` script:
 

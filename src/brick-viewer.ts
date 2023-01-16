@@ -1,14 +1,9 @@
-import {
-  LitElement,
-  property,
-  customElement,
-  PropertyValues,
-  html,
-  css,
-  query,
-  internalProperty,
-} from 'lit-element';
-import {ifDefined} from 'lit-html/directives/if-defined';
+/**
+ * @license
+ * Copyright 2020 Google LLC
+ * SPDX-License-Identifier: MIT
+ */
+
 
 import * as THREE from 'three';
 import {LDrawLoader} from 'three/examples/jsm/loaders/LDrawLoader.js';
@@ -20,7 +15,7 @@ import '@material/mwc-linear-progress';
 import {Slider} from '@material/mwc-slider';
 
 /*
- * Much of this code is from the three.js LDraw example:
+ * Much of the three.js code is from the three.js LDraw example:
  * https://github.com/mrdoob/three.js/blob/dev/examples/webgl_loader_ldraw.html
  */
 

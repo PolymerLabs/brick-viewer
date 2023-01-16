@@ -157,14 +157,10 @@ export class BrickViewer extends LitElement {
     return html`
       ${this._renderer.domElement}
       ${this._loadState === LoadState.LOADING
-        ? html`
-            <mwc-linear-progress indeterminate></mwc-linear-progress>
-          `
+        ? html`<mwc-linear-progress indeterminate></mwc-linear-progress>`
         : ''}
       ${this._loadState === LoadState.ERROR
-        ? html`
-            <div id="error-message">Couldn't load model.</div>
-          `
+        ? html`<div id="error-message">Couldn't load model.</div>`
         : ''}
 
       <div id="controls">

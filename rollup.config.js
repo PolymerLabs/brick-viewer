@@ -13,9 +13,8 @@
  */
 
 import filesize from 'rollup-plugin-filesize';
-import {terser} from 'rollup-plugin-terser';
-import resolve from 'rollup-plugin-node-resolve';
-import replace from '@rollup/plugin-replace';
+import terser from '@rollup/plugin-terser';
+import resolve from '@rollup/plugin-node-resolve';
 
 export default {
   input: 'docs-components/index.js',
@@ -29,7 +28,6 @@ export default {
     }
   },
   plugins: [
-    replace({'Reflect.decorate': 'undefined'}),
     resolve(),
     terser({
       module: true,

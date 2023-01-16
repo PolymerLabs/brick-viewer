@@ -111,7 +111,7 @@ export class KnobsExample extends LitElement {
             type="number"
             min="1"
             max="66"
-            .value="${this.step}"
+            .value="${this.step as unknown as string}"
             @change=${(e: Event) => {
               this.step = Number((e.target as HTMLInputElement).value);
             }}
@@ -151,8 +151,8 @@ render(html<span class="string">&#96;</span>
       <div>
         <p>Result:</p>
         <brick-viewer
-          step="${this.step}"
-          src="./models/${this.src}.mpd"
+          .step="${this.step}"
+          .src="./models/${this.src}.mpd"
           id="main-example"
         ></brick-viewer>
       </div>

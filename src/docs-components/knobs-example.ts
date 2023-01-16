@@ -1,13 +1,7 @@
 import '../brick-viewer';
 import {BrickViewer} from '../brick-viewer';
-import {
-  LitElement,
-  customElement,
-  html,
-  css,
-  property,
-  query,
-} from 'lit-element';
+import {LitElement, html, css} from 'lit';
+import {customElement, property, query} from 'lit/decorators.js';
 import '@material/mwc-select';
 import {Select} from '@material/mwc-select';
 import '@material/mwc-list/mwc-list-item';

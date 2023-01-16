@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: MIT
  */
 
+import {LitElement, PropertyValues, html, css} from 'lit';
+import {property, customElement, query, state} from 'lit/decorators.js';
+import {ifDefined} from 'lit/directives/if-defined.js';
 
 import * as THREE from 'three';
 import {LDrawLoader} from 'three/examples/jsm/loaders/LDrawLoader.js';
@@ -64,7 +67,7 @@ export class BrickViewer extends LitElement {
   @property({type: Number, reflect: true})
   step?: number;
 
-  @internalProperty()
+  @state()
   private _loadState?: LoadState;
 
   @query('mwc-slider')

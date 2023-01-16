@@ -34,7 +34,7 @@
     "@material/mwc-linear-progress": "^0.18.0",
     "@material/mwc-slider": "^0.18.0",
     "lit": "^2.6.1",
-    "three": "^0.114.0"
+    "three": "^0.148.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2",
@@ -48,6 +48,7 @@
     "@rollup/plugin-terser": "^0.3.0",
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
+    "@types/three": "^0.148.0",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
     "@web/dev-server": "^0.1.35",

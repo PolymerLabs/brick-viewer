@@ -19,8 +19,6 @@ import '@material/mwc-slider';
 import '@material/mwc-linear-progress';
 import {Slider} from '@material/mwc-slider';
 
-import ResizeObserver from 'resize-observer-polyfill';
-
 /*
  * Much of this code is from the three.js LDraw example:
  * https://github.com/mrdoob/three.js/blob/dev/examples/webgl_loader_ldraw.html

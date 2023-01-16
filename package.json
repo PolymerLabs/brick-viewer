@@ -18,6 +18,8 @@
     "docs:serve": "web-dev-server --root-dir=docs --node-resolve --watch",
     "analyze": "wca analyze \"src/**/*.ts\" --outFile custom-elements.json",
     "serve": "web-dev-server --node-resolve --watch",
+    "test": "web-test-runner test/**/*_test.js",
+    "test:watch": "web-test-runner --watch",
     "checksize": "rollup -c ; cat brick-viewer.bundled.js | gzip -9 | wc -c ; rm brick-viewer.bundled.js"
   },
   "keywords": [
@@ -49,6 +51,7 @@
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "@web/dev-server": "^0.1.35",
+    "@web/test-runner": "^0.15.0",
     "chai": "^4.3.7",
     "deepmerge": "^4.2.2",
     "eslint": "^6.8.0",

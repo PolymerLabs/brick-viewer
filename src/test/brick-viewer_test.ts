@@ -1,7 +1,6 @@
 import {BrickViewer} from '../brick-viewer.js';
 // import {fixture, html} from '@open-wc/testing';
-
-const assert = chai.assert;
+import { assert } from 'chai';
 
 suite('brick-viewer', () => {
 
